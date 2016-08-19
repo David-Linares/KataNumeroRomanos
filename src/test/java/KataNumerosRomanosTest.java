@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 
+import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  *
@@ -16,29 +18,47 @@ import org.testng.annotations.BeforeMethod;
  * @author David Alexander Linares Villamil
  */
 public class KataNumerosRomanosTest {
-    
+
     public KataNumerosRomanosTest() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
+    @Test
+    public void esNumero() {
+        String valorEsperado = "5A";
+        try {
+            Integer.parseInt(valorEsperado);
+            Assert.assertTrue(true);
+        } catch (Exception e) {
+            Assert.assertTrue(false);
+        }
     }
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
+    @Test
+    public void esPositivo() {
+        int valorEsperado = -5;
+        if (valorEsperado > 0) {
+            Assert.assertTrue(true);
+        } else {
+            Assert.assertTrue(false);
+        }
     }
 
-    @BeforeMethod
-    public void setUpMethod() throws Exception {
+    @Test
+    public void simbolosRomanosBasicos() {
+        String valorEsperado = "1";
+        String constante = ConstantesRomanas.getSimbolo(valorEsperado);
+        Assert.assertEquals(valorEsperado, constante);
     }
 
-    @AfterMethod
-    public void tearDownMethod() throws Exception {
+    @Test
+    public void casosEspeciales() {
+        int valor = 4;
+        String valorEsperado = "IV";
+        String constante = ConstantesRomanas.getSimbolo(valorEsperado + 1);
+        Assert.assertEquals("I" + constante, valorEsperado);
     }
+
+
+@Test
+    public void 
 }
