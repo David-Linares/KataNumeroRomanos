@@ -58,4 +58,19 @@ public class KataNumerosRomanosTest {
         Assert.assertEquals("I" + constante, valorEsperado);
     }
     
+    @Test
+    public void toDoNoNulo() {
+        int valor = null;
+        String valorEsperado = "Valor incorrecto";
+        String constante = ConstantesRomanas.getSimbolo(valorEsperado + 1);
+        Assert.assertEquals("I" + constante, valorEsperado);
+    }
+    
+    public void toDoNoDecimal() {
+        int valor = 4.76;
+        String valorEsperado = "Valor incorrecto";
+        String constante = ConstantesRomanas.getSimbolo(valorEsperado + 1);
+        Assert.assertEquals("I" + constante, valorEsperado);
+    }
+    
 }
