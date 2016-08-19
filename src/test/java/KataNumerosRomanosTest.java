@@ -57,8 +57,5 @@ public class KataNumerosRomanosTest {
         String constante = ConstantesRomanas.getSimbolo(valorEsperado + 1);
         Assert.assertEquals("I" + constante, valorEsperado);
     }
-
-
-@Test
-    public void 
+    
 }
